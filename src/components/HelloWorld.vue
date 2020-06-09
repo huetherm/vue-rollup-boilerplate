@@ -1,5 +1,5 @@
 <template>
-  <span>Home</span>
+  <span class="intro">Home</span>
 </template>
 
 <script>

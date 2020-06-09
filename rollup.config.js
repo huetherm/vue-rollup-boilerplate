@@ -8,6 +8,8 @@ import svg from 'rollup-plugin-svg';
 import esbuild from 'rollup-plugin-esbuild';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
+import less from 'rollup-plugin-less'
+import scss from 'rollup-plugin-scss'
 
 const production = !process.env.ROLLUP_WATCH;
 const port = 8080;
@@ -21,7 +23,8 @@ export default {
     name: 'app',
   },
   plugins: [
-    postcss({ extract: true }),
+    less({insert : true}),
+    scss(),
     vue({ css: false }),
 	svg(),
 	vuetify(),

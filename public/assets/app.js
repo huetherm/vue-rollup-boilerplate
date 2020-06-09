@@ -3,6 +3,20 @@
 (function () {
   'use strict';
 
+  
+
+  function __$styleInject(css) {
+      if (!css) return;
+
+      if (typeof window == 'undefined') return;
+      var style = document.createElement('style');
+      style.setAttribute('media', 'screen');
+
+      style.innerHTML = css;
+      document.head.appendChild(style);
+      return css;
+  }
+
   /*!
    * Vue.js v2.6.11
    * (c) 2014-2019 Evan You
@@ -21738,7 +21752,7 @@
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("span", [_vm._v("Home")])
+    return _c("span", { staticClass: "intro" }, [_vm._v("Home")])
   };
   var __vue_staticRenderFns__$2 = [];
   __vue_render__$2._withStripped = true;
@@ -21907,6 +21921,8 @@
   var router = new VueRouter({
     routes
   });
+
+  __$styleInject(".intro {\n  color: #FF7F50;\n}\n.test {\n  color: #800080;\n}\n");
 
   Vue.config.productionTip = false;
   new Vue({
