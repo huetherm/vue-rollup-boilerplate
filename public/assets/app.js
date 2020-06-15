@@ -3,20 +3,6 @@
 (function () {
   'use strict';
 
-  
-
-  function __$styleInject(css) {
-      if (!css) return;
-
-      if (typeof window == 'undefined') return;
-      var style = document.createElement('style');
-      style.setAttribute('media', 'screen');
-
-      style.innerHTML = css;
-      document.head.appendChild(style);
-      return css;
-  }
-
   /*!
    * Vue.js v2.6.11
    * (c) 2014-2019 Evan You
@@ -16637,7 +16623,9 @@
       VContent,
       VApp
     },
-    data: () => ({})
+    data: () => {
+      return {};
+    }
   };
 
   function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
@@ -16786,14 +16774,16 @@
         _c(
           "v-content",
           [
-            _c("router-link", { attrs: { to: "/" } }, [_vm._v("Go to Home")]),
+            _c("router-link", { attrs: { to: "/" } }, [
+              _vm._v("\n      Go to Home\n    ")
+            ]),
             _vm._v(" "),
             _c("router-link", { attrs: { to: "/vuelidate" } }, [
-              _vm._v("Go to Vuelidate")
+              _vm._v("\n      Go to Vuelidate\n    ")
             ]),
             _vm._v(" "),
             _c("router-link", { attrs: { to: "/counter" } }, [
-              _vm._v("Go to Counter")
+              _vm._v("\n      Go to Counter\n    ")
             ]),
             _vm._v(" "),
             _c("br"),
@@ -21543,13 +21533,15 @@
         }
       }
     },
-    data: () => ({
-      name: "",
-      email: "",
-      select: null,
-      items: ["Item 1", "Item 2", "Item 3", "Item 4"],
-      checkbox: false
-    }),
+    data: () => {
+      return {
+        name: "",
+        email: "",
+        select: null,
+        items: ["Item 1", "Item 2", "Item 3", "Item 4"],
+        checkbox: false
+      };
+    },
     computed: {
       checkboxErrors() {
         const errors = [];
@@ -21702,10 +21694,10 @@
         }),
         _vm._v(" "),
         _c("v-btn", { staticClass: "mr-4", on: { click: _vm.submit } }, [
-          _vm._v("submit")
+          _vm._v("\n    submit\n  ")
         ]),
         _vm._v(" "),
-        _c("v-btn", { on: { click: _vm.clear } }, [_vm._v("clear")])
+        _c("v-btn", { on: { click: _vm.clear } }, [_vm._v("\n    clear\n  ")])
       ],
       1
     )
@@ -21825,7 +21817,7 @@
     return _c(
       "div",
       [
-        _c("p", [_vm._v(_vm._s(_vm.counter) + " ")]),
+        _c("p", [_vm._v(_vm._s(_vm.counter))]),
         _vm._v(" "),
         _c(
           "v-btn",
@@ -21865,7 +21857,11 @@
               }
             }
           },
-          [_c("v-icon", { attrs: { left: "" } }, [_vm._v("mdi-delete")])],
+          [
+            _c("v-icon", { attrs: { left: "" } }, [
+              _vm._v("\n      mdi-delete\n    ")
+            ])
+          ],
           1
         )
       ],
@@ -21921,8 +21917,6 @@
   var router = new VueRouter({
     routes
   });
-
-  __$styleInject(".intro {\n  color: #FF7F50;\n}\n.test {\n  color: #800080;\n}\n");
 
   Vue.config.productionTip = false;
   new Vue({
